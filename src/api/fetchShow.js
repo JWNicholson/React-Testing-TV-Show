@@ -1,16 +1,13 @@
 import axios from 'axios';
 
-
- useEffect(() => {
-    const fetchShow = () => {
-      axios
-        .get(
-          "https://api.tvmaze.com/singlesearch/shows?q=stranger-things&embed=episodes"
-        )
-        .then(res => {
-          setShow(res.data);
-          setSeasons(formatSeasons(res.data._embedded.episodes));
-        });
-    };
-    fetchShow();
-  }, []);
+export const fetchShow = async () => {
+    try {
+        const res = await axios
+            .get("https://api.tvmaze.com/singlesearch/shows?q=stranger-things&embed=episodes");
+        return res;
+    }
+    catch (err) {
+        console.log('getting the api', err);
+        return err;
+    }
+  };
