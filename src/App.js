@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Dropdown from "react-dropdown";
 import parse from "html-react-parser";
 
@@ -7,6 +6,7 @@ import { formatSeasons } from "./utils/formatSeasons";
 import { fetchShow } from "./api/fetchShow";
 import Episodes from "./components/Episodes";
 import "./styles.css";
+// import ShowSelect from './components/ShowSelect';
 
 export default function App() {
   const [show, setShow] = useState(null);
@@ -43,6 +43,7 @@ export default function App() {
         placeholder="Select an option"
       />
       <Episodes episodes={episodes} />
+      {/* <ShowSelect /> */}
     </div>
   );
 }
